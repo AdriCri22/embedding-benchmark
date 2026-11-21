@@ -1,0 +1,181 @@
+{
+  "politicas": [
+    {
+      "id": "hr-pol-001",
+      "titulo": "Política de Trabajo Remoto",
+      "version": "3.2",
+      "fecha_vigencia": "2024-01-15",
+      "ultima_revision": "2024-11-01",
+      "responsable": "Personas y Cultura",
+      "aplica_a": ["tiempo-completo", "medio-tiempo", "contratistas"],
+      "contenido": {
+        "resumen": "TechCorp apoya trabajo remoto flexible hasta 4 días/semana. Horas núcleo de colaboración: 10am-3pm UTC. Días de sincronización equipo: martes y jueves en oficina o virtual.",
+        "elegibilidad": "Todos los empleados tras 90 días de prueba. Gerentes aprueban según requisitos del rol.",
+        "subsidio_remoto": {
+          "mensual": 150,
+          "moneda": "USD",
+          "cubre": ["internet", "electricidad", "equipamiento ergonómico"],
+          "proceso_reembolso": "Enviar vía Expensify con recibos antes del día 5 del mes siguiente"
+        },
+        "equipamiento": {
+          "proporcionado": ["portátil", "monitor", "teclado", "ratón", "auriculares"],
+          "ciclo_renovacion": "3 años",
+          "politica_devolucion": "Devolver en 14 días tras salida"
+        },
+        "requisitos_seguridad": [
+          "VPN siempre activo para recursos empresa",
+          "Dispositivo MDM inscrito obligatorio",
+          "No WiFi público sin VPN",
+          "Bloqueo pantalla: 5 min",
+          "Cifrado disco completo obligatorio"
+        ],
+        "remoto_internacional": {
+          "paises_permitidos": ["US", "CA", "UK", "DE", "ES", "FR", "NL", "PT", "IE", "PL", "BR", "MX", "CO", "AR", "CL", "AU", "NZ", "SG", "JP"],
+          "duracion_maxima": "90 días por año natural",
+          "aprobacion_requerida": "VP Personas + Legal + Fiscal",
+          "implicaciones_fiscales": "Empleado responsable de cumplimiento fiscal local"
+        },
+        "excepciones": "Centro de datos, laboratorio hardware y roles on-call requieren presencia oficina. Documentado en perfil de rol."
+      }
+    },
+    {
+      "id": "hr-pol-002",
+      "titulo": "Presupuesto Formación y Desarrollo",
+      "version": "2.1",
+      "fecha_vigencia": "2024-02-01",
+      "ultima_revision": "2024-10-15",
+      "responsable": "Personas y Cultura",
+      "aplica_a": ["tiempo-completo", "medio-tiempo"],
+      "contenido": {
+        "presupuesto_anual": {
+          "importe": 3000,
+          "moneda": "USD",
+          "acumulable": false,
+          "fecha_reset": "2025-01-01"
+        },
+        "gastos_elegibles": [
+          "Conferencias y workshops (inscripción, viaje, alojamiento)",
+          "Cursos online y certificaciones (Coursera, edX, Udemy, etc.)",
+          "Libros técnicos y suscripciones (O'Reilly, ACM, IEEE)",
+          "Aprendizaje idiomas (relevantes para negocio)",
+          "Programas coaching y mentoría"
+        ],
+        "gastos_no_elegibles": [
+          "Programas grado (programa separado asistencia matrícula)",
+          "Cursos interés personal no relacionados con rol",
+          "Actividades ocio o entretenimiento",
+          "Equipamiento (cubierto por política equipamiento)"
+        ],
+        "proceso_aprobacion": {
+          "menos_500": "Aprobación automática gerente",
+          "500_2000": "Gerente + People Partner",
+          "mas_2000": "Gerente + People Partner + VP"
+        },
+        "reembolso": "Enviar vía Workday con recibo y reflexión aprendizaje (200 palabras) en 30 días.",
+        "requisito_compartir": "Presentar aprendizajes en reunión equipo o escribir post blog interno en 60 días."
+      }
+    },
+    {
+      "id": "hr-pol-003",
+      "titulo": "Ciclo Evaluación Desempeño",
+      "version": "4.0",
+      "fecha_vigencia": "2024-01-01",
+      "ultima_revision": "2024-11-01",
+      "responsable": "Personas y Cultura",
+      "aplica_a": ["tiempo-completo"],
+      "contenido": {
+        "ciclo": "Semestral (S1: Ene-Jun, S2: Jul-Dic)",
+        "cronograma": {
+          "autoevaluacion_abre": "Semana 1 mes fin ciclo",
+          "autoevaluacion_vence": "Semana 2",
+          "evaluacion_gerente_vence": "Semana 3",
+          "calibracion": "Semana 4",
+          "entrega": "Semana 5-6"
+        },
+        "componentes": [
+          {
+            "nombre": "Objetivos y Resultados (60%)",
+            "descripcion": "Cumplimiento OKR, entrega proyectos, impacto negocio",
+            "escala_valoracion": ["Supera", "Cumple", "Parcialmente Cumple", "No Cumple"]
+          },
+          {
+            "nombre": "Competencias (25%)",
+            "descripcion": "Excelencia técnica, colaboración, comunicación, ownership",
+            "escala_valoracion": ["Modelo a Seguir", "Consistente", "En Desarrollo", "Requiere Mejora"]
+          },
+          {
+            "nombre": "Alineación Valores (15%)",
+            "descripcion": "Demostración valores fundamentales en trabajo diario",
+            "escala_valoracion": ["Ejemplar", "Alineado", "Inconsistente", "Desalineado"]
+          }
+        ],
+        "calibracion": "Sesiones calibración cruzada lideradas por People Partners. Garantiza consistencia organización.",
+        "resultados": {
+          "elegibilidad_promocion": "2 'Supera' consecutivos + competencias Modelo a Seguir",
+          "ajuste_compensacion": "Basado en valoración + datos mercado + presupuesto",
+          "trigger_pip": "2 'No Cumple' consecutivos o 'Requiere Mejora'"
+        },
+        "apelaciones": "Enviar a People Partner en 10 días hábiles. Revisado por VP Personas + CTO."
+      }
+    },
+    {
+      "id": "hr-pol-004",
+      "titulo": "Permiso Parental",
+      "version": "2.0",
+      "fecha_vigencia": "2024-03-01",
+      "ultima_revision": "2024-10-01",
+      "responsable": "Personas y Cultura",
+      "aplica_a": ["tiempo-completo"],
+      "contenido": {
+        "cuidador_principal": {
+          "duracion_semanas": 20,
+          "semanas_pagadas": 20,
+          "porcentaje_salario": 100
+        },
+        "cuidador_secundario": {
+          "duracion_semanas": 8,
+          "semanas_pagadas": 8,
+          "porcentaje_salario": 100
+        },
+        "adopcion_subrogacion": "Igual que cuidador principal",
+        "complicaciones_embarazo": "4 semanas adicionales pagadas al 100%",
+        "regreso_flexible": {
+          "opcion_media_jornada": "Hasta 12 semanas al 60% horas, 100% salario",
+          "opcion_remoto": "Remoto total primeras 8 semanas tras regreso"
+        },
+        "proteccion_empleo": "Regreso garantizado a mismo o rol equivalente",
+        "beneficios_continuacion": "Beneficios completos mantenidos durante baja",
+        "notificacion": "Notificar a gerente + People Partner al menos 8 semanas antes fecha prevista"
+      }
+    },
+    {
+      "id": "hr-pol-005",
+      "titulo": "Filosofía de Compensación",
+      "version": "1.5",
+      "fecha_vigencia": "2024-01-01",
+      "ultima_revision": "2024-09-15",
+      "responsable": "Personas y Cultura + Finanzas",
+      "aplica_a": ["tiempo-completo", "medio-tiempo"],
+      "contenido": {
+        "principio": "Pagar en percentil 75 de mercado para rol/nivel/ubicación",
+        "componentes": {
+          "salario_base": "Percentil 75 mercado, revisado anualmente",
+          "equidad": "Concesiones refresco anuales, vesting 4 años, cliff 1 año",
+          "bono": "Objetivo 15% (IC) / 25% (M) / 40% (Director+), pagado trimestral",
+          "beneficios": "Salud integral, 401k match 5%, stipend bienestar"
+        },
+        "ajuste_ubicacion": {
+          "metodo": "Costo de mano de obra (no costo de vida)",
+          "niveles": {
+            "nivel_1": ["San Francisco", "New York", "London", "Zurich"],
+            "multiplicador": 1.0
+          },
+          "nivel_2": ["Seattle", "Boston", "Berlin", "Toronto", "Sydney"],
+          "multiplicador": 0.9
+        },
+        "transparencia": "Bandas salariales publicadas internamente. Candidatos ven banda en oferta.",
+        "refresco_equidad": "Anual en marzo. Basado en desempeño + antigüedad + nivel."
+      }
+    }
+  ]
+}

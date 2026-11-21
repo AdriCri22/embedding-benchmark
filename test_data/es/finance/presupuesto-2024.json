@@ -1,0 +1,165 @@
+{
+  "ejercicio_fiscal": "2024",
+  "moneda": "USD",
+  "departamentos": [
+    {
+      "nombre": "Ingeniería",
+      "codigo": "ENG",
+      "plantilla": 120,
+      "presupuesto": {
+        "personal": 14200000,
+        "infraestructura": 2800000,
+        "herramientas_licencias": 950000,
+        "formacion": 360000,
+        "contratistas": 1200000,
+        "total": 19510000
+      },
+      "reales_ytd": {
+        "personal": 10650000,
+        "infraestructura": 2100000,
+        "herramientas_licencias": 712500,
+        "formacion": 270000,
+        "contratistas": 900000,
+        "total": 14632500
+      },
+      "variacion_pct": -25.0,
+      "prevision_eoy": 18800000
+    },
+    {
+      "nombre": "Producto",
+      "codigo": "PRD",
+      "plantilla": 25,
+      "presupuesto": {
+        "personal": 3200000,
+        "investigacion_usuarios": 180000,
+        "herramientas_licencias": 120000,
+        "formacion": 75000,
+        "total": 3575000
+      },
+      "reales_ytd": {
+        "personal": 2400000,
+        "investigacion_usuarios": 135000,
+        "herramientas_licencias": 90000,
+        "formacion": 56250,
+        "total": 2681250
+      },
+      "variacion_pct": -25.0,
+      "prevision_eoy": 3450000
+    },
+    {
+      "nombre": "Ventas y Marketing",
+      "codigo": "SAM",
+      "plantilla": 40,
+      "presupuesto": {
+        "personal": 4800000,
+        "medios_pagados": 2200000,
+        "eventos": 650000,
+        "produccion_contenido": 280000,
+        "herramientas_licencias": 180000,
+        "formacion": 120000,
+        "total": 8230000
+      },
+      "reales_ytd": {
+        "personal": 3600000,
+        "medios_pagados": 1650000,
+        "eventos": 487500,
+        "produccion_contenido": 210000,
+        "herramientas_licencias": 135000,
+        "formacion": 90000,
+        "total": 6172500
+      },
+      "variacion_pct": -25.0,
+      "prevision_eoy": 7950000
+    },
+    {
+      "nombre": "Operaciones",
+      "codigo": "OPS",
+      "plantilla": 15,
+      "presupuesto": {
+        "personal": 1800000,
+        "infraestructura_cloud": 3200000,
+        "herramientas_monitorizacion": 180000,
+        "respuesta_incidentes": 120000,
+        "formacion": 60000,
+        "total": 5360000
+      },
+      "reales_ytd": {
+        "personal": 1350000,
+        "infraestructura_cloud": 2400000,
+        "herramientas_monitorizacion": 135000,
+        "respuesta_incidentes": 90000,
+        "formacion": 45000,
+        "total": 4020000
+      },
+      "variacion_pct": -25.0,
+      "prevision_eoy": 5180000
+    },
+    {
+      "nombre": "Finanzas y Legal",
+      "codigo": "FNL",
+      "plantilla": 10,
+      "presupuesto": {
+        "personal": 1400000,
+        "asesoria_externa": 280000,
+        "auditoria_compliance": 180000,
+        "herramientas_licencias": 90000,
+        "formacion": 40000,
+        "total": 1990000
+      },
+      "reales_ytd": {
+        "personal": 1050000,
+        "asesoria_externa": 210000,
+        "auditoria_compliance": 135000,
+        "herramientas_licencias": 67500,
+        "formacion": 30000,
+        "total": 1492500
+      },
+      "variacion_pct": -25.0,
+      "prevision_eoy": 1920000
+    },
+    {
+      "nombre": "Personas y Cultura",
+      "codigo": "PPC",
+      "plantilla": 8,
+      "presupuesto": {
+        "personal": 960000,
+        "reclutamiento": 480000,
+        "formacion_desarrollo": 240000,
+        "eventos_cultura": 120000,
+        "herramientas_licencias": 60000,
+        "formacion": 30000,
+        "total": 1890000
+      },
+      "reales_ytd": {
+        "personal": 720000,
+        "reclutamiento": 360000,
+        "formacion_desarrollo": 180000,
+        "eventos_cultura": 90000,
+        "herramientas_licencias": 45000,
+        "formacion": 22500,
+        "total": 1417500
+      },
+      "variacion_pct": -25.0,
+      "prevision_eoy": 1820000
+    }
+  ],
+  "totales": {
+    "presupuesto": 40555000,
+    "reales_ytd": 30416250,
+    "variacion_pct": -25.0,
+    "prevision_eoy": 39120000
+  },
+  "ingresos": {
+    "arr": 42300000,
+    "crecimiento_arr_interanual": 0.67,
+    "margen_bruto": 0.78,
+    "retencion_ingresos_neta": 1.23,
+    "cac_meses_recuperacion": 14,
+    "ltv_cac_ratio": 4.2
+  },
+  "posicion_efectivo": {
+    "efectivo_disponible": 28500000,
+    "runway_meses": 34,
+    "tasa_quema_mensual": 3200000
+  }
+}

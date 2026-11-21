@@ -1,0 +1,181 @@
+{
+  "politiques": [
+    {
+      "id": "hr-pol-001",
+      "titol": "Política de Treball Remot",
+      "version": "3.2",
+      "data_vigent": "2024-01-15",
+      "ultima_revisio": "2024-11-01",
+      "responsable": "Persones i Cultura",
+      "aplica_a": ["temps-complet", "mitja-jornada", "contractistes"],
+      "contingut": {
+        "resum": "TechCorp dona suport a treball remot flexible fins a 4 dies/setmana. Hores nucli de col·laboració: 10am-3pm UTC. Dies de sincronització equip: dimarts i dijous a l'oficina o virtual.",
+        "elegibilitat": "Tots els empleats després de 90 dies de prova. Gerents aproven segons requisits del rol.",
+        "subsidi_remot": {
+          "mensual": 150,
+          "moneda": "USD",
+          "cobreix": ["internet", "electricitat", "equipament ergonomic"],
+          "procés_reemborsament": "Enviar via Expensify amb rebuts abans del dia 5 del mes següent"
+        },
+        "equipament": {
+          "proporcionat": ["portàtil", "monitor", "teclat", "ratolí", "auriculars"],
+          "cicle_renovacio": "3 anys",
+          "politica_devolucio": "Retornar en 14 dies després de sortida"
+        },
+        "requisits_seguretat": [
+          "VPN sempre actiu per recursos empresa",
+          "Dispositiu MDM inscrit obligatori",
+          "Cap WiFi públic sense VPN",
+          "Bloqueig pantalla: 5 min",
+          "Xifrat disc complet obligatori"
+        ],
+        "remot_internacional": {
+          "paisos_permès": ["US", "CA", "UK", "DE", "ES", "FR", "NL", "PT", "IE", "PL", "BR", "MX", "CO", "AR", "CL", "AU", "NZ", "SG", "JP"],
+          "durada_maxima": "90 dies per any natural",
+          "aprovacio_requerida": "VP Persones + Legal + Fiscal",
+          "implicacions_fiscals": "Empleat responsable de compliment fiscal local"
+        },
+        "excepcions": "Centre de dades, laboratori hardware i rols on-call requereixen presència oficina. Documentat al perfil de rol."
+      }
+    },
+    {
+      "id": "hr-pol-002",
+      "titol": "Pressupost Formació i Desenvolupament",
+      "version": "2.1",
+      "data_vigent": "2024-02-01",
+      "ultima_revisio": "2024-10-15",
+      "responsable": "Persones i Cultura",
+      "aplica_a": ["temps-complet", "mitja-jornada"],
+      "contingut": {
+        "pressupost_anual": {
+          "import": 3000,
+          "moneda": "USD",
+          "acumulable": false,
+          "data_reset": "2025-01-01"
+        },
+        "despeses_elegibles": [
+          "Conferències i workshops (inscripció, viatge, allotjament)",
+          "Cursos en línia i certificacions (Coursera, edX, Udemy, etc.)",
+          "Llibres tècnics i subscripcions (O'Reilly, ACM, IEEE)",
+          "Aprenentatge d'idiomes (rellevants per negoci)",
+          "Programes coaching i mentoratge"
+        ],
+        "despeses_no_elegibles": [
+          "Programes de grau (programa separat assistència matrícula)",
+          "Cursos d'interès personal no relacionats amb rol",
+          "Activitats d'oci o entreteniment",
+          "Equipament (cobert per política equipament)"
+        ],
+        "procés_aprovacio": {
+          "menys_500": "Aprovació automàtica gerent",
+          "500_2000": "Gerent + People Partner",
+          "mes_2000": "Gerent + People Partner + VP"
+        },
+        "reemborsament": "Enviar via Workday amb rebut i reflexió aprenentatge (200 paraules) en 30 dies.",
+        "requisit_compartir": "Presentar aprenentatges a reunió equip o escriure post blog intern en 60 dies."
+      }
+    },
+    {
+      "id": "hr-pol-003",
+      "titol": "Cicle Avaluació Desempeny",
+      "version": "4.0",
+      "data_vigent": "2024-01-01",
+      "ultima_revisio": "2024-11-01",
+      "responsable": "Persones i Cultura",
+      "aplica_a": ["temps-complet"],
+      "contingut": {
+        "cicle": "Semestral (S1: Gen-Jun, S2: Jul-Des)",
+        "cronograma": {
+          "autoavaluacio_obre": "Setmana 1 mes fi cicle",
+          "autoavaluacio_venc": "Setmana 2",
+          "avaluacio_gerent_venc": "Setmana 3",
+          "calibracio": "Setmana 4",
+          "lliurament": "Setmana 5-6"
+        },
+        "components": [
+          {
+            "nom": "Objectius i Resultats (60%)",
+            "descripcio": "Compliment OKR, lliurament projectes, impacte negoci",
+            "escala_valoracio": ["Supera", "Compleix", "Parcialment Compleix", "No Compleix"]
+          },
+          {
+            "nom": "Competències (25%)",
+            "descripcio": "Excel·lència tècnica, col·laboració, comunicació, ownership",
+            "escala_valoracio": ["Model a Seguir", "Consistent", "En Desenvolupament", "Requereix Millora"]
+          },
+          {
+            "nom": "Alineació Valors (15%)",
+            "descripcio": "Demostració valors fonamentals en treball diari",
+            "escala_valoracio": ["Exemplar", "Alineat", "Inconsistent", "Desalineat"]
+          }
+        ],
+        "calibracio": "Sessions calibratge creuada liderades per People Partners. Garanteix consistència organització.",
+        "resultats": {
+          "elegibilitat_promocio": "2 'Supera' consecutius + competències Model a Seguir",
+          "ajust_compensacio": "Basat en valoració + dades mercat + pressupost",
+          "trigger_pip": "2 'No Compleix' consecutius o 'Requereix Millora'"
+        },
+        "apel·lacions": "Enviar a People Partner en 10 dies hàbils. Revisat per VP Persones + CTO."
+      }
+    },
+    {
+      "id": "hr-pol-004",
+      "titol": "Permís Parental",
+      "version": "2.0",
+      "data_vigent": "2024-03-01",
+      "ultima_revisio": "2024-10-01",
+      "responsable": "Persones i Cultura",
+      "aplica_a": ["temps-complet"],
+      "contingut": {
+        "cuidador_principal": {
+          "durada_setmanes": 20,
+          "setmanes_pagades": 20,
+          "percentatge_salari": 100
+        },
+        "cuidador_secundari": {
+          "durada_setmanes": 8,
+          "setmanes_pagades": 8,
+          "percentatge_salari": 100
+        },
+        "adopcio_subrogacio": "Igual que cuidador principal",
+        "complicacions_embarass": "4 setmanes addicionals pagades al 100%",
+        "tornada_flexible": {
+          "opcio_mitja_jornada": "Fins a 12 setmanes al 60% hores, 100% salari",
+          "opcio_remot": "Remot total primeres 8 setmanes després tornada"
+        },
+        "proteccio_feina": "Tornada garantida a mateix o rol equivalent",
+        "beneficis_continuacio": "Beneficis complets mantinguts durant baixa",
+        "notificacio": "Notificar a gerent + People Partner almenys 8 setmanes abans data prevista"
+      }
+    },
+    {
+      "id": "hr-pol-005",
+      "titol": "Filosofia de Compensació",
+      "version": "1.5",
+      "data_vigent": "2024-01-01",
+      "ultima_revisio": "2024-09-15",
+      "responsable": "Persones i Cultura + Finances",
+      "aplica_a": ["temps-complet", "mitja-jornada"],
+      "contingut": {
+        "principi": "Pagar al percentil 75 de mercat per rol/nivell/ubicació",
+        "components": {
+          "salari_base": "Percentil 75 mercat, revisat anualment",
+          "equitat": "Concessions refresc anuals, vesting 4 anys, cliff 1 any",
+          "bonus": "Objectiu 15% (IC) / 25% (M) / 40% (Director+), pagat trimestral",
+          "beneficis": "Salut integral, 401k match 5%, stipend benestar"
+        },
+        "ajust_ubicacio": {
+          "metode": "Cost de mà d'obra (no cost de vida)",
+          "nivells": {
+            "nivell_1": ["San Francisco", "New York", "London", "Zurich"],
+            "multiplicador": 1.0
+          },
+          "nivell_2": ["Seattle", "Boston", "Berlin", "Toronto", "Sydney"],
+          "multiplicador": 0.9
+        },
+        "transparencia": "Bandes salarials publicades internament. Candidates veuen banda a l'oferta.",
+        "refresc_equitat": "Anual al març. Basat en rendiment + antiguitat + nivell."
+      }
+    }
+  ]
+}

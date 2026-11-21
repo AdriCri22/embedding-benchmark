@@ -1,0 +1,96 @@
+# Configuració de l'Aplicació TechCorp
+# Fitxer de configuració principal per a la Plataforma IA de TechCorp
+
+application:
+  name: "TechCorp AI Platform"
+  version: "2.4.0"
+  environment: "production"
+  debug: false
+
+server:
+  host: "0.0.0.0"
+  port: 8080
+  workers: 4
+  timeout: 30
+  max_request_size: "10MB"
+
+database:
+  primary:
+    host: "postgres-primary.techcorp.io"
+    port: 5432
+    database: "techcorp_prod"
+    username: "app_user"
+    password: "${DB_PASSWORD}"
+    pool_size: 20
+    max_overflow: 10
+    ssl_mode: "require"
+  replica:
+    host: "postgres-replica.techcorp.io"
+    port: 5432
+    database: "techcorp_prod"
+    username: "app_user"
+    password: "${DB_PASSWORD}"
+    pool_size: 10
+
+redis:
+  host: "redis-cluster.techcorp.io"
+  port: 6379
+  password: "${REDIS_PASSWORD}"
+  db: 0
+  max_connections: 50
+  socket_timeout: 5
+  socket_connect_timeout: 5
+
+cache:
+  default_ttl: 3600
+  max_size: "1GB"
+  eviction_policy: "allkeys-lru"
+  key_prefix: "tc:"
+
+ai_models:
+  embedding:
+    default: "text-embedding-3-small"
+    fallback: "gte-base"
+    batch_size: 100
+    max_tokens: 8191
+  inference:
+    default: "llama-3.2-3b-instruct"
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 0.9
+
+monitoring:
+  metrics:
+    enabled: true
+    port: 9090
+    path: "/metrics"
+  logging:
+    level: "INFO"
+    format: "json"
+    output: "stdout"
+  tracing:
+    enabled: true
+    sample_rate: 0.1
+    endpoint: "http://jaeger:14268/api/traces"
+
+security:
+  jwt:
+    secret: "${JWT_SECRET}"
+    algorithm: "RS256"
+    expiration: 3600
+  cors:
+    allowed_origins:
+      - "https://app.techcorp.io"
+      - "https://admin.techcorp.io"
+    allowed_methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    allowed_headers: ["Authorization", "Content-Type", "X-Request-ID"]
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 1000
+    burst: 200
+
+feature_flags:
+  new_checkout_flow: false
+  ai_recommendations: true
+  advanced_analytics: false
+  beta_features: false

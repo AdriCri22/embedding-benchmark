@@ -1,0 +1,151 @@
+{
+  "contracts": [
+    {
+      "id": "ctr-2024-001",
+      "type": "MSA",
+      "counterparty": "Acme Corporation",
+      "status": "active",
+      "effective_date": "2024-01-15",
+      "expiration_date": "2027-01-14",
+      "auto_renewal": true,
+      "renewal_notice_days": 90,
+      "governing_law": "Delaware, USA",
+      "jurisdiction": "Delaware Court of Chancery",
+      "key_terms": {
+        "liability_cap": "12 months fees",
+        "indemnification": "mutual",
+        "ip_ownership": "customer owns data, techcorp owns platform",
+        "confidentiality": "perpetual",
+        "data_processing": "DPA attached as Exhibit A",
+        "sla": "99.9% uptime, credits per Exhibit B",
+        "termination_for_convenience": "90 days notice"
+      },
+      "financial": {
+        "annual_value": 480000,
+        "currency": "USD",
+        "payment_terms": "Net 30",
+        "billing_frequency": "quarterly"
+      },
+      "contacts": {
+        "techcorp": {
+          "account_manager": "sarah.chen@techcorp.io",
+          "legal": "legal@techcorp.io"
+        },
+        "counterparty": {
+          "primary": "procurement@acme.com",
+          "technical": "engineering@acme.com"
+        }
+      },
+      "tags": ["enterprise", "multi-year", "strategic"]
+    },
+    {
+      "id": "ctr-2024-002",
+      "type": "DPA",
+      "counterparty": "GlobalData GmbH",
+      "status": "active",
+      "effective_date": "2024-02-01",
+      "expiration_date": "2026-01-31",
+      "auto_renewal": false,
+      "governing_law": "GDPR, German BDSG",
+      "jurisdiction": "Frankfurt, Germany",
+      "key_terms": {
+        "data_categories": ["personal_data", "usage_analytics", "support_tickets"],
+        "processing_purposes": ["service_delivery", "support", "analytics"],
+        "subprocessors": ["AWS (EU-West-1)", "Snowflake (EU)", "PagerDuty (US-EU SCC)"],
+        "data_subject_rights": "30-day response SLA",
+        "breach_notification": "72 hours",
+        "dpo_contact": "dpo@techcorp.io",
+        "international_transfers": "SCC + UK Addendum"
+      },
+      "financial": {
+        "annual_value": 0,
+        "currency": "EUR"
+      },
+      "contacts": {
+        "techcorp": {
+          "dpo": "dpo@techcorp.io",
+          "legal": "legal@techcorp.io"
+        },
+        "counterparty": {
+          "privacy": "privacy@globaldatagmbh.de"
+        }
+      },
+      "tags": ["gdpr", "data-processing", "eu-customer"]
+    },
+    {
+      "id": "ctr-2024-003",
+      "type": "NDA",
+      "counterparty": "StartupXYZ Inc",
+      "status": "active",
+      "effective_date": "2024-03-10",
+      "expiration_date": "2026-03-09",
+      "auto_renewal": false,
+      "governing_law": "California, USA",
+      "jurisdiction": "San Francisco County",
+      "key_terms": {
+        "definition": "All non-public information shared",
+        "permitted_use": "Evaluation of partnership only",
+        "return_destroy": "30 days post-termination",
+        "residuals_clause": "Permitted",
+        "non_solicit": "12 months for employees"
+      },
+      "financial": {
+        "annual_value": 0,
+        "currency": "USD"
+      },
+      "contacts": {
+        "techcorp": {
+          "bd": "bd@techcorp.io",
+          "legal": "legal@techcorp.io"
+        },
+        "counterparty": {
+          "ceo": "founder@startupxyz.com"
+        }
+      },
+      "tags": ["partnership", "evaluation", "mutual"]
+    },
+    {
+      "id": "ctr-2024-004",
+      "type": "SOW",
+      "counterparty": "HealthTech Solutions",
+      "status": "completed",
+      "effective_date": "2024-04-01",
+      "expiration_date": "2024-09-30",
+      "auto_renewal": false,
+      "governing_law": "New York, USA",
+      "jurisdiction": "New York State Courts",
+      "key_terms": {
+        "scope": "Custom fine-tuning of Llama-3.1-70B for medical coding",
+        "deliverables": [
+          "Fine-tuned model artifact",
+          "Evaluation report (accuracy, latency, safety)",
+          "Deployment package (Docker + Helm)",
+          "Knowledge transfer session (4 hours)"
+        ],
+        "acceptance_criteria": "F1 > 0.92 on held-out test set, P99 latency < 500ms",
+        "change_control": "Written change order required for scope changes",
+        "warranty": "90 days post-delivery for model defects"
+      },
+      "financial": {
+        "total_value": 185000,
+        "currency": "USD",
+        "payment_schedule": [
+          {"milestone": "Kickoff", "amount": 37000, "due": "2024-04-01"},
+          {"milestone": "Data prep complete", "amount": 46250, "due": "2024-05-15"},
+          {"milestone": "Model delivered", "amount": 55500, "due": "2024-08-01"},
+          {"milestone": "Acceptance", "amount": 46250, "due": "2024-09-15"}
+        ]
+      },
+      "contacts": {
+        "techcorp": {
+          "pm": "alex.rodriguez@techcorp.io",
+          "engineering": "ml-engineering@techcorp.io"
+        },
+        "counterparty": {
+          "cto": "cto@healthtechsolutions.com"
+        }
+      },
+      "tags": ["professional-services", "ml-fine-tuning", "healthcare", "completed"]
+    }
+  ]
+}

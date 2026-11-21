@@ -1,0 +1,6 @@
+fastembed>=0.3.0
+sqlite-vec>=0.1.6
+httpx>=0.27.0
+psutil>=5.9.0
+numpy>=1.24.0
+typer>=0.9.0

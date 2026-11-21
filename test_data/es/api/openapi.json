@@ -1,0 +1,623 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "API de la Plataforma IA de TechCorp",
+    "version": "2.4.0",
+    "description": "API REST para inferencia de modelos, fine-tuning y gestión de despliegues",
+    "contact": {
+      "name": "Soporte API",
+      "email": "api-support@techcorp.io",
+      "url": "https://docs.techcorp.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.techcorp.io/v2",
+      "description": "API de Producción"
+    },
+    {
+      "url": "https://api-staging.techcorp.io/v2",
+      "description": "API de Staging"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "paths": {
+    "/models": {
+      "get": {
+        "summary": "Listar modelos disponibles",
+        "operationId": "listModels",
+        "tags": ["Modelos"],
+        "parameters": [
+          {
+            "name": "task",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["text-generation", "embedding", "classification", "summarization"]
+            },
+            "description": "Filtrar por tipo de tarea"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Model"
+                      }
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/Pagination"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          }
+        }
+      }
+    },
+    "/models/{model_id}/inference": {
+      "post": {
+        "summary": "Ejecutar inferencia del modelo",
+        "operationId": "runInference",
+        "tags": ["Inferencia"],
+        "parameters": [
+          {
+            "name": "model_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["input"],
+                "properties": {
+                  "input": {
+                    "type": "string",
+                    "maxLength": 128000
+                  },
+                  "parameters": {
+                    "$ref": "#/components/schemas/InferenceParameters"
+                  },
+                  "stream": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resultado de inferencia",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InferenceResponse"
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/ValidationError"
+          }
+        }
+      }
+    },
+    "/fine-tunes": {
+      "post": {
+        "summary": "Crear trabajo de fine-tuning",
+        "operationId": "createFineTune",
+        "tags": ["Fine-tuning"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["base_model", "training_data"],
+                "properties": {
+                  "base_model": {
+                    "type": "string",
+                    "enum": ["llama-3.1-8b", "llama-3.1-70b", "mistral-7b", "qwen2.5-7b"]
+                  },
+                  "training_data": {
+                    "type": "object",
+                    "required": ["dataset_id", "format"],
+                    "properties": {
+                      "dataset_id": {
+                        "type": "string"
+                      },
+                      "format": {
+                        "type": "string",
+                        "enum": ["alpaca", "sharegpt", "openai", "jsonl"]
+                      },
+                      "hyperparameters": {
+                        "$ref": "#/components/schemas/FineTuneHyperparameters"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+        "responses": {
+          "201": {
+            "description": "Trabajo de fine-tuning creado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FineTuneJob"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deployments": {
+      "get": {
+        "summary": "Listar despliegues",
+        "operationId": "listDeployments",
+        "tags": ["Despliegues"]
+      },
+      "post": {
+        "summary": "Crear despliegue",
+        "operationId": "createDeployment",
+        "tags": ["Despliegues"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["model_id", "replicas", "instance_type"],
+                "properties": {
+                  "model_id": {
+                    "type": "string"
+                  },
+                  "replicas": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100
+                  },
+                  "instance_type": {
+                    "type": "string",
+                    "enum": ["gpu-a10g-1x", "gpu-a10g-4x", "gpu-h100-1x", "gpu-h100-8x", "cpu-standard-8xlarge"]
+                  },
+                  "autoscaling": {
+                    "type": "object",
+                    "properties": {
+                      "min_replicas": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "max_replicas": {
+                        "type": "integer",
+                        "maximum": 100
+                      },
+                      "target_utilization": {
+                        "type": "number",
+                        "minimum": 0.1,
+                        "maximum": 0.9
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  },
+  "components": {
+    "schemas": {
+      "Model": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "task": {
+            "type": "string",
+            "enum": ["text-generation", "embedding", "classification", "summarization"]
+          },
+          "context_window": {
+            "type": "integer"
+          },
+          "max_output_tokens": {
+            "type": "integer"
+          },
+          "pricing": {
+            "type": "object",
+            "properties": {
+              "input_per_1m": {
+                "type": "number"
+              },
+              "output_per_1m": {
+                "type": "number"
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["available", "deprecated", "beta"]
+          }
+        }
+      },
+      "InferenceParameters": {
+        "type": "object",
+        "properties": {
+          "temperature": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2,
+            "default": 0.7
+          },
+          "top_p": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.9
+          },
+          "top_k": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 50
+          },
+          "max_tokens": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4096
+          },
+          "stop_sequences": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 5
+          },
+          "presence_penalty": {
+            "type": "number",
+            "minimum": -2,
+            "maximum": 2,
+            "default": 0
+          },
+          "frequency_penalty": {
+            "type": "number",
+            "minimum": -2,
+            "maximum": 2,
+            "default": 0
+          }
+        }
+      },
+      "InferenceResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "output": {
+            "type": "string"
+          },
+          "usage": {
+            "type": "object",
+            "properties": {
+              "prompt_tokens": {
+                "type": "integer"
+              },
+              "completion_tokens": {
+                "type": "integer"
+              },
+              "total_tokens": {
+                "type": "integer"
+              }
+            }
+          },
+          "finish_reason": {
+            "type": "string",
+            "enum": ["stop", "length", "content_filter"]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "FineTuneHyperparameters": {
+        "type": "object",
+        "properties": {
+          "learning_rate": {
+            "type": "number",
+            "minimum": 1e-6,
+            "maximum": 1e-3,
+            "default": 2e-5
+          },
+          "batch_size": {
+            "type": "integer",
+            "enum": [1, 2, 4, 8, 16, 32],
+            "default": 4
+          },
+          "epochs": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "default": 3
+          },
+          "lora_rank": {
+            "type": "integer",
+            "enum": [8, 16, 32, 64, 128],
+            "default": 32
+          },
+          "lora_alpha": {
+            "type": "integer",
+            "enum": [16, 32, 64, 128],
+            "default": 64
+          },
+          "warmup_steps": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000,
+            "default": 100
+          }
+        }
+      },
+      "FineTuneJob": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["pending", "running", "completed", "failed", "cancelled"]
+          },
+          "base_model": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "metrics": {
+            "type": "object",
+            "properties": {
+              "train_loss": {
+                "type": "number"
+              },
+              "eval_loss": {
+                "type": "number"
+              },
+              "eval_accuracy": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      },
+      "Pagination": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "has_more": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "API key inválida o faltante",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "unauthorized"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "API key inválida. Por favor verifica tus credenciales."
+                }
+              }
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "Límite de tasa excedido",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "rate_limited"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Demasiadas solicitudes. Por favor reintenta después de 60 segundos."
+                },
+                "retry_after": {
+                  "type": "integer",
+                  "example": 60
+                }
+              }
+            }
+          }
+        }
+      },
+      "BadRequest": {
+        "description": "Parámetros de solicitud inválidos",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "bad_request"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "details": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Recurso no encontrado",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "not_found"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ValidationError": {
+        "description": "Validación de solicitud fallida",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "validation_error"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "field": {
+                        "type": "string"
+                      },
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

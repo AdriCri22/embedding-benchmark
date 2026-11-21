@@ -1,0 +1,186 @@
+# Model configurations for Embedding Benchmark Suite
+# Edit this file to add/remove/modify models without changing code
+
+models:
+  # FastEmbed models (ONNX, CPU/GPU)
+  - name: "gte-base"
+    type: "fastembed"
+    model_name: "thenlper/gte-base"
+    dim: 768
+    tags: ["fast", "english", "general", "retrieval"]
+    enabled: true
+
+  - name: "gte-large"
+    type: "fastembed"
+    model_name: "thenlper/gte-large"
+    dim: 1024
+    tags: ["english", "high-quality", "retrieval"]
+    enabled: true
+
+  - name: "mxbai-embed-large-v1"
+    type: "fastembed"
+    model_name: "mixedbread-ai/mxbai-embed-large-v1"
+    dim: 1024
+    tags: ["multilingual", "retrieval", "high-quality"]
+    enabled: true
+
+  - name: "intfloat/multilingual-e5-large"
+    type: "fastembed"
+    model_name: "intfloat/multilingual-e5-large"
+    dim: 1024
+    tags: ["multilingual", "high-quality", "retrieval"]
+    enabled: true
+
+  - name: "jina-embeddings-v2-base-es"
+    type: "fastembed"
+    model_name: "jinaai/jina-embeddings-v2-base-es"
+    dim: 768
+    tags: ["spanish", "multilingual", "retrieval"]
+    enabled: true
+
+  - name: "paraphrase-multilingual-MiniLM-L12-v2"
+    type: "fastembed"
+    model_name: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    dim: 384
+    tags: ["multilingual", "fast", "lightweight"]
+    enabled: true
+
+  - name: "Qwen3-Embedding-0.6B"
+    type: "fastembed"
+    model_name: "Qwen/Qwen3-Embedding-0.6B"
+    dim: 1024
+    tags: ["multilingual", "chinese", "retrieval"]
+    enabled: true
+
+  - name: "Qwen3-Embedding-0.6B-Q"
+    type: "fastembed"
+    model_name: "Qwen/Qwen3-Embedding-0.6B-Q"
+    dim: 1024
+    tags: ["multilingual", "quantized", "fast"]
+    enabled: true
+
+  # llama.cpp models (GGUF, local inference)
+  - name: "embeddinggemma-2-Q8_0"
+    type: "llama_cpp"
+    gguf_path: "models/embeddinggemma-2-Q8_0.gguf"
+    server_port: 8081
+    dim: 768
+    ctx: 8192
+    tags: ["local", "gguf", "fast", "google"]
+    enabled: true
+
+  - name: "Qwen3-Embedding-4B"
+    type: "llama_cpp"
+    gguf_path: "models/Qwen3-Embedding-4B-Q8_0.gguf"
+    server_port: 8082
+    dim: 2560
+    ctx: 8192
+    tags: ["local", "gguf", "high-quality", "multilingual"]
+    enabled: true
+
+  # Generation/Judge models (llama.cpp for LLM inference)
+  - name: "llama-3.2-3b-instruct"
+    type: "llama_cpp"
+    gguf_path: "models/llama-3.2-3b-instruct-q8_0.gguf"
+    server_port: 8083
+    dim: 0
+    ctx: 4096
+    tags: ["generation", "judge", "llama_cpp"]
+    enabled: true
+
+  # OpenAI API models (requires API key)
+  - name: "text-embedding-3-small"
+    type: "openai"
+    model_name: "text-embedding-3-small"
+    dim: 1536
+    tags: ["api", "openai", "high-quality"]
+    enabled: false  # Requires OPENAI_API_KEY
+
+  - name: "text-embedding-3-large"
+    type: "openai"
+    model_name: "text-embedding-3-large"
+    dim: 3072
+    tags: ["api", "openai", "highest-quality"]
+    enabled: false  # Requires OPENAI_API_KEY
+
+# Model presets for quick selection
+presets:
+  # Quick benchmark: 3 fast models, ~5 min
+  quick:
+    - "gte-base"
+    - "intfloat/multilingual-e5-large"
+    - "mxbai-embed-large-v1"
+
+  # Format-aware benchmark: 8 models, ~10 min
+  formats:
+    - "gte-base"
+    - "intfloat/multilingual-e5-large"
+    - "mxbai-embed-large-v1"
+    - "paraphrase-multilingual-MiniLM-L12-v2"
+    - "jina-embeddings-v2-base-es"
+    - "Qwen3-Embedding-0.6B"
+    - "gte-large"
+    - "text-embedding-3-small"
+
+  # Full benchmark: all 11 models, ~1 hour
+  full:
+    - "embeddinggemma-2-Q8_0"
+    - "mxbai-embed-large-v1"
+    - "paraphrase-multilingual-MiniLM-L12-v2"
+    - "intfloat/multilingual-e5-large"
+    - "jina-embeddings-v2-base-es"
+    - "Qwen3-Embedding-0.6B"
+    - "Qwen3-Embedding-0.6B-Q"
+    - "gte-base"
+    - "gte-large"
+    - "Qwen3-Embedding-4B"
+    - "text-embedding-3-small"
+
+  # Local-only models (no API key needed)
+  local_only:
+    - "embeddinggemma-2-Q8_0"
+    - "Qwen3-Embedding-4B"
+
+  # API-only models (requires API keys)
+  api_only:
+    - "text-embedding-3-small"
+    - "text-embedding-3-large"
+
+  # Multilingual models
+  multilingual:
+    - "intfloat/multilingual-e5-large"
+    - "mxbai-embed-large-v1"
+    - "paraphrase-multilingual-MiniLM-L12-v2"
+    - "jina-embeddings-v2-base-es"
+    - "Qwen3-Embedding-0.6B"
+    - "Qwen3-Embedding-0.6B-Q"
+
+  # English-optimized models
+  english:
+    - "gte-base"
+    - "gte-large"
+
+  # High-quality models (slower but better)
+  high_quality:
+    - "intfloat/multilingual-e5-large"
+    - "mxbai-embed-large-v1"
+    - "gte-large"
+    - "Qwen3-Embedding-4B"
+    - "text-embedding-3-large"
+
+  # Fast models (lower quality but quick)
+  fast:
+    - "gte-base"
+    - "paraphrase-multilingual-MiniLM-L12-v2"
+    - "embeddinggemma-2-Q8_0"
+    - "Qwen3-Embedding-0.6B-Q"
+
+  # Lightweight models (small, fast)
+  lightweight:
+    - "paraphrase-multilingual-MiniLM-L12-v2"
+    - "gte-base"
+    - "jina-embeddings-v2-base-es"
+
+# Generation and Judge model names (used by benchmarks)
+generation_model: "llama-3.2-3b-instruct"
+judge_model: "llama-3.2-3b-instruct"

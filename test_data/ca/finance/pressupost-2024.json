@@ -1,0 +1,165 @@
+{
+  "exercici_fiscal": "2024",
+  "moneda": "USD",
+  "departaments": [
+    {
+      "nom": "Enginyeria",
+      "codi": "ENG",
+      "plantilla": 120,
+      "pressupost": {
+        "personal": 14200000,
+        "infraestructura": 2800000,
+        "eines_licencies": 950000,
+        "formacio": 360000,
+        "contractistes": 1200000,
+        "total": 19510000
+      },
+      "reals_ytd": {
+        "personal": 10650000,
+        "infraestructura": 2100000,
+        "eines_licencies": 712500,
+        "formacio": 270000,
+        "contractistes": 900000,
+        "total": 14632500
+      },
+      "variacio_pct": -25.0,
+      "previsio_eoy": 18800000
+    },
+    {
+      "nom": "Producte",
+      "codi": "PRD",
+      "plantilla": 25,
+      "pressupost": {
+        "personal": 3200000,
+        "recerca_usuaris": 180000,
+        "eines_licencies": 120000,
+        "formacio": 75000,
+        "total": 3575000
+      },
+      "reals_ytd": {
+        "personal": 2400000,
+        "recerca_usuaris": 135000,
+        "eines_licencies": 90000,
+        "formacio": 56250,
+        "total": 2681250
+      },
+      "variacio_pct": -25.0,
+      "previsio_eoy": 3450000
+    },
+    {
+      "nom": "Vendes i Màrqueting",
+      "codi": "SAM",
+      "plantilla": 40,
+      "pressupost": {
+        "personal": 4800000,
+        "mitjans_pagats": 2200000,
+        "esdeveniments": 650000,
+        "produccio_contingut": 280000,
+        "eines_licencies": 180000,
+        "formacio": 120000,
+        "total": 8230000
+      },
+      "reals_ytd": {
+        "personal": 3600000,
+        "mitjans_pagats": 1650000,
+        "esdeveniments": 487500,
+        "produccio_contingut": 210000,
+        "eines_licencies": 135000,
+        "formacio": 90000,
+        "total": 6172500
+      },
+      "variacio_pct": -25.0,
+      "previsio_eoy": 7950000
+    },
+    {
+      "nom": "Operacions",
+      "codi": "OPS",
+      "plantilla": 15,
+      "pressupost": {
+        "personal": 1800000,
+        "infraestructura_cloud": 3200000,
+        "eines_monitoritzacio": 180000,
+        "resposta_incidents": 120000,
+        "formacio": 60000,
+        "total": 5360000
+      },
+      "reals_ytd": {
+        "personal": 1350000,
+        "infraestructura_cloud": 2400000,
+        "eines_monitoritzacio": 135000,
+        "resposta_incidents": 90000,
+        "formacio": 45000,
+        "total": 4020000
+      },
+      "variacio_pct": -25.0,
+      "previsio_eoy": 5180000
+    },
+    {
+      "nom": "Finances i Legal",
+      "codi": "FNL",
+      "plantilla": 10,
+      "pressupost": {
+        "personal": 1400000,
+        "assessoria_externa": 280000,
+        "auditoria_compliance": 180000,
+        "eines_licencies": 90000,
+        "formacio": 40000,
+        "total": 1990000
+      },
+      "reals_ytd": {
+        "personal": 1050000,
+        "assessoria_externa": 210000,
+        "auditoria_compliance": 135000,
+        "eines_licencies": 67500,
+        "formacio": 30000,
+        "total": 1492500
+      },
+      "variacio_pct": -25.0,
+      "previsio_eoy": 1920000
+    },
+    {
+      "nom": "Persones i Cultura",
+      "codi": "PPC",
+      "plantilla": 8,
+      "pressupost": {
+        "personal": 960000,
+        "reclutament": 480000,
+        "formacio_desenvolupament": 240000,
+        "esdeveniments_cultura": 120000,
+        "eines_licencies": 60000,
+        "formacio": 30000,
+        "total": 1890000
+      },
+      "reals_ytd": {
+        "personal": 720000,
+        "reclutament": 360000,
+        "formacio_desenvolupament": 180000,
+        "esdeveniments_cultura": 90000,
+        "eines_licencies": 45000,
+        "formacio": 22500,
+        "total": 1417500
+      },
+      "variacio_pct": -25.0,
+      "previsio_eoy": 1820000
+    }
+  ],
+  "totals": {
+    "pressupost": 40555000,
+    "reals_ytd": 30416250,
+    "variacio_pct": -25.0,
+    "previsio_eoy": 39120000
+  },
+  "ingressos": {
+    "arr": 42300000,
+    "creixement_arr_interanual": 0.67,
+    "marge_brut": 0.78,
+    "retencio_ingressos_neta": 1.23,
+    "cac_mesos_recuperacio": 14,
+    "ltv_cac_ratio": 4.2
+  },
+  "posicio_efectiu": {
+    "efectiu_disponible": 28500000,
+    "runway_mesos": 34,
+    "taxa_crema_mensual": 3200000
+  }
+}

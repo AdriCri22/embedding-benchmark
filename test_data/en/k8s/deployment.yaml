@@ -1,0 +1,132 @@
+# Kubernetes Deployment for TechCorp AI Platform
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: techcorp-ai-platform
+  namespace: techcorp-prod
+  labels:
+    app: techcorp-ai-platform
+    version: "2.4.0"
+    component: "api"
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: techcorp-ai-platform
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: techcorp-ai-platform
+        version: "2.4.0"
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+        prometheus.io/path: "/metrics"
+    spec:
+      serviceAccountName: techcorp-ai-platform
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+        - name: api
+          image: techcorp/ai-platform:2.4.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 9090
+              name: metrics
+          envFrom:
+            - configMapRef:
+                name: techcorp-config
+            - secretRef:
+                name: techcorp-secrets
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "2000m"
+              memory: "4Gi"
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - techcorp-ai-platform
+                topologyKey: kubernetes.io/hostname
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: techcorp-ai-platform
+  namespace: techcorp-prod
+  labels:
+    app: techcorp-ai-platform
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+      name: http
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
+      name: metrics
+  selector:
+    app: techcorp-ai-platform
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: techcorp-config
+  namespace: techcorp-prod
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "INFO"
+  METRICS_ENABLED: "true"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: techcorp-secrets
+  namespace: techcorp-prod
+type: Opaque
+stringData:
+  DB_PASSWORD: "REPLACE_WITH_ACTUAL_PASSWORD"
+  REDIS_PASSWORD: "REPLACE_WITH_ACTUAL_PASSWORD"
+  JWT_SECRET: "REPLACE_WITH_ACTUAL_SECRET"

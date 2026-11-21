@@ -1,0 +1,165 @@
+{
+  "fiscal_year": "2024",
+  "currency": "USD",
+  "departments": [
+    {
+      "name": "Engineering",
+      "code": "ENG",
+      "headcount": 120,
+      "budget": {
+        "personnel": 14200000,
+        "infrastructure": 2800000,
+        "tools_licenses": 950000,
+        "training": 360000,
+        "contractors": 1200000,
+        "total": 19510000
+      },
+      "actuals_ytd": {
+        "personnel": 10650000,
+        "infrastructure": 2100000,
+        "tools_licenses": 712500,
+        "training": 270000,
+        "contractors": 900000,
+        "total": 14632500
+      },
+      "variance_pct": -25.0,
+      "forecast_eoy": 18800000
+    },
+    {
+      "name": "Product",
+      "code": "PRD",
+      "headcount": 25,
+      "budget": {
+        "personnel": 3200000,
+        "user_research": 180000,
+        "tools_licenses": 120000,
+        "training": 75000,
+        "total": 3575000
+      },
+      "actuals_ytd": {
+        "personnel": 2400000,
+        "user_research": 135000,
+        "tools_licenses": 90000,
+        "training": 56250,
+        "total": 2681250
+      },
+      "variance_pct": -25.0,
+      "forecast_eoy": 3450000
+    },
+    {
+      "name": "Sales & Marketing",
+      "code": "SAM",
+      "headcount": 40,
+      "budget": {
+        "personnel": 4800000,
+        "paid_media": 2200000,
+        "events": 650000,
+        "content_production": 280000,
+        "tools_licenses": 180000,
+        "training": 120000,
+        "total": 8230000
+      },
+      "actuals_ytd": {
+        "personnel": 3600000,
+        "paid_media": 1650000,
+        "events": 487500,
+        "content_production": 210000,
+        "tools_licenses": 135000,
+        "training": 90000,
+        "total": 6172500
+      },
+      "variance_pct": -25.0,
+      "forecast_eoy": 7950000
+    },
+    {
+      "name": "Operations",
+      "code": "OPS",
+      "headcount": 15,
+      "budget": {
+        "personnel": 1800000,
+        "cloud_infrastructure": 3200000,
+        "monitoring_tools": 180000,
+        "incident_response": 120000,
+        "training": 60000,
+        "total": 5360000
+      },
+      "actuals_ytd": {
+        "personnel": 1350000,
+        "cloud_infrastructure": 2400000,
+        "monitoring_tools": 135000,
+        "incident_response": 90000,
+        "training": 45000,
+        "total": 4020000
+      },
+      "variance_pct": -25.0,
+      "forecast_eoy": 5180000
+    },
+    {
+      "name": "Finance & Legal",
+      "code": "FNL",
+      "headcount": 10,
+      "budget": {
+        "personnel": 1400000,
+        "external_counsel": 280000,
+        "audit_compliance": 180000,
+        "tools_licenses": 90000,
+        "training": 40000,
+        "total": 1990000
+      },
+      "actuals_ytd": {
+        "personnel": 1050000,
+        "external_counsel": 210000,
+        "audit_compliance": 135000,
+        "tools_licenses": 67500,
+        "training": 30000,
+        "total": 1492500
+      },
+      "variance_pct": -25.0,
+      "forecast_eoy": 1920000
+    },
+    {
+      "name": "People & Culture",
+      "code": "PPC",
+      "headcount": 8,
+      "budget": {
+        "personnel": 960000,
+        "recruiting": 480000,
+        "learning_development": 240000,
+        "events_culture": 120000,
+        "tools_licenses": 60000,
+        "training": 30000,
+        "total": 1890000
+      },
+      "actuals_ytd": {
+        "personnel": 720000,
+        "recruiting": 360000,
+        "learning_development": 180000,
+        "events_culture": 90000,
+        "tools_licenses": 45000,
+        "training": 22500,
+        "total": 1417500
+      },
+      "variance_pct": -25.0,
+      "forecast_eoy": 1820000
+    }
+  ],
+  "totals": {
+    "budget": 40555000,
+    "actuals_ytd": 30416250,
+    "variance_pct": -25.0,
+    "forecast_eoy": 39120000
+  },
+  "revenue": {
+    "arr": 42300000,
+    "arr_growth_yoy": 0.67,
+    "gross_margin": 0.78,
+    "net_revenue_retention": 1.23,
+    "cac_payback_months": 14,
+    "ltv_cac_ratio": 4.2
+  },
+  "cash_position": {
+    "cash_on_hand": 28500000,
+    "runway_months": 34,
+    "burn_rate_monthly": 3200000
+  }
+}

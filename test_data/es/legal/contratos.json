@@ -1,0 +1,151 @@
+{
+  "contratos": [
+    {
+      "id": "ctr-2024-001",
+      "tipo": "MSA",
+      "contraparte": "Acme Corporation",
+      "estado": "activo",
+      "fecha_vigencia": "2024-01-15",
+      "fecha_expiracion": "2027-01-14",
+      "renovacion_automatica": true,
+      "dias_aviso_renovacion": 90,
+      "ley_aplicable": "Delaware, USA",
+      "jurisdiccion": "Delaware Court of Chancery",
+      "terminos_clave": {
+        "limite_responsabilidad": "12 meses de honorarios",
+        "indemnizacion": "mutua",
+        "propiedad_ip": "cliente posee datos, techcorp posee plataforma",
+        "confidencialidad": "perpetua",
+        "procesamiento_datos": "DPA adjunto como Anexo A",
+        "sla": "99.9% uptime, créditos según Anexo B",
+        "terminacion_conveniencia": "90 días de aviso"
+      },
+      "financiero": {
+        "valor_anual": 480000,
+        "moneda": "USD",
+        "terminos_pago": "Net 30",
+        "frecuencia_facturacion": "trimestral"
+      },
+      "contactos": {
+        "techcorp": {
+          "account_manager": "sarah.chen@techcorp.io",
+          "legal": "legal@techcorp.io"
+        },
+        "contraparte": {
+          "principal": "procurement@acme.com",
+          "tecnico": "engineering@acme.com"
+        }
+      },
+      "etiquetas": ["enterprise", "multi-year", "strategic"]
+    },
+    {
+      "id": "ctr-2024-002",
+      "tipo": "DPA",
+      "contraparte": "GlobalData GmbH",
+      "estado": "activo",
+      "fecha_vigencia": "2024-02-01",
+      "fecha_expiracion": "2026-01-31",
+      "renovacion_automatica": false,
+      "ley_aplicable": "GDPR, German BDSG",
+      "jurisdiccion": "Frankfurt, Germany",
+      "terminos_clave": {
+        "categorias_datos": ["personal_data", "usage_analytics", "support_tickets"],
+        "propositos_procesamiento": ["service_delivery", "support", "analytics"],
+        "subprocesadores": ["AWS (EU-West-1)", "Snowflake (EU)", "PagerDuty (US-EU SCC)"],
+        "derechos_interesado": "SLA respuesta 30 días",
+        "notificacion_incidente": "72 horas",
+        "contacto_dpo": "dpo@techcorp.io",
+        "transferencias_internacionales": "SCC + UK Addendum"
+      },
+      "financiero": {
+        "valor_anual": 0,
+        "moneda": "EUR"
+      },
+      "contactos": {
+        "techcorp": {
+          "dpo": "dpo@techcorp.io",
+          "legal": "legal@techcorp.io"
+        },
+        "contraparte": {
+          "privacy": "privacy@globaldatagmbh.de"
+        }
+      },
+      "etiquetas": ["gdpr", "data-processing", "eu-customer"]
+    },
+    {
+      "id": "ctr-2024-003",
+      "tipo": "NDA",
+      "contraparte": "StartupXYZ Inc",
+      "estado": "activo",
+      "fecha_vigencia": "2024-03-10",
+      "fecha_expiracion": "2026-03-09",
+      "renovacion_automatica": false,
+      "ley_aplicable": "California, USA",
+      "jurisdiccion": "San Francisco County",
+      "terminos_clave": {
+        "definicion": "Toda información no pública compartida",
+        "uso_permitido": "Evaluación de asociación únicamente",
+        "devolucion_destruccion": "30 días post-terminación",
+        "clausula_residuales": "Permitida",
+        "no_solicitacion": "12 meses para empleados"
+      },
+      "financiero": {
+        "valor_anual": 0,
+        "moneda": "USD"
+      },
+      "contactos": {
+        "techcorp": {
+          "bd": "bd@techcorp.io",
+          "legal": "legal@techcorp.io"
+        },
+        "contraparte": {
+          "ceo": "founder@startupxyz.com"
+        }
+      },
+      "etiquetas": ["partnership", "evaluation", "mutual"]
+    },
+    {
+      "id": "ctr-2024-004",
+      "tipo": "SOW",
+      "contraparte": "HealthTech Solutions",
+      "estado": "completado",
+      "fecha_vigencia": "2024-04-01",
+      "fecha_expiracion": "2024-09-30",
+      "renovacion_automatica": false,
+      "ley_aplicable": "New York, USA",
+      "jurisdiccion": "New York State Courts",
+      "terminos_clave": {
+        "alcance": "Fine-tuning personalizado de Llama-3.1-70B para codificación médica",
+        "entregables": [
+          "Artefacto de modelo fine-tuned",
+          "Informe de evaluación (precisión, latencia, seguridad)",
+          "Paquete de despliegue (Docker + Helm)",
+          "Sesión transferencia conocimiento (4 horas)"
+        ],
+        "criterios_aceptacion": "F1 > 0.92 en test set held-out, P99 latencia < 500ms",
+        "control_cambios": "Orden de cambio por escrito requerido para cambios de alcance",
+        "garantia": "90 días post-entrega para defectos del modelo"
+      },
+      "financiero": {
+        "valor_total": 185000,
+        "moneda": "USD",
+        "calendario_pagos": [
+          {"hito": "Kickoff", "importe": 37000, "vence": "2024-04-01"},
+          {"hito": "Preparación datos completa", "importe": 46250, "vence": "2024-05-15"},
+          {"hito": "Modelo entregado", "importe": 55500, "vence": "2024-08-01"},
+          {"hito": "Aceptación", "importe": 46250, "vence": "2024-09-15"}
+        ]
+      },
+      "contactos": {
+        "techcorp": {
+          "pm": "alex.rodriguez@techcorp.io",
+          "engineering": "ml-engineering@techcorp.io"
+        },
+        "contraparte": {
+          "cto": "cto@healthtechsolutions.com"
+        }
+      },
+      "etiquetas": ["professional-services", "ml-fine-tuning", "healthcare", "completed"]
+    }
+  ]
+}

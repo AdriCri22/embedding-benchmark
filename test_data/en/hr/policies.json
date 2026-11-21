@@ -1,0 +1,181 @@
+{
+  "policies": [
+    {
+      "id": "hr-pol-001",
+      "title": "Remote Work Policy",
+      "version": "3.2",
+      "effective_date": "2024-01-15",
+      "last_reviewed": "2024-11-01",
+      "owner": "People & Culture",
+      "applies_to": ["full-time", "part-time", "contractors"],
+      "content": {
+        "summary": "TechCorp supports flexible remote work with up to 4 days/week remote. Core collaboration hours: 10am-3pm UTC. Team sync days: Tuesday & Thursday in-office or virtual.",
+        "eligibility": "All employees after 90-day probation. Managers approve based on role requirements.",
+        "remote_allowance": {
+          "monthly_stipend": 150,
+          "currency": "USD",
+          "covers": ["internet", "electricity", "ergonomic equipment"],
+          "reimbursement_process": "Submit via Expensify with receipts by 5th of following month"
+        },
+        "equipment": {
+          "provided": ["laptop", "monitor", "keyboard", "mouse", "headset"],
+          "refresh_cycle": "3 years",
+          "return_policy": "Return within 14 days of departure"
+        },
+        "security_requirements": [
+          "VPN always on for company resources",
+          "MDM enrolled device required",
+          "No public WiFi without VPN",
+          "Screen lock timeout: 5 min",
+          "Full disk encryption mandatory"
+        ],
+        "international_remote": {
+          "allowed_countries": ["US", "CA", "UK", "DE", "ES", "FR", "NL", "PT", "IE", "PL", "BR", "MX", "CO", "AR", "CL", "AU", "NZ", "SG", "JP"],
+          "max_duration": "90 days per calendar year",
+          "approval_required": "VP People + Legal + Tax",
+          "tax_implications": "Employee responsible for local tax compliance"
+        },
+        "exceptions": "Data center, hardware lab, and on-call roles require in-office presence. Documented in role profile."
+      }
+    },
+    {
+      "id": "hr-pol-002",
+      "title": "Learning & Development Budget",
+      "version": "2.1",
+      "effective_date": "2024-02-01",
+      "last_reviewed": "2024-10-15",
+      "owner": "People & Culture",
+      "applies_to": ["full-time", "part-time"],
+      "content": {
+        "annual_budget": {
+          "amount": 3000,
+          "currency": "USD",
+          "rollover": false,
+          "reset_date": "2025-01-01"
+        },
+        "eligible_expenses": [
+          "Conferences & workshops (registration, travel, accommodation)",
+          "Online courses & certifications (Coursera, edX, Udemy, etc.)",
+          "Technical books & subscriptions (O'Reilly, ACM, IEEE)",
+          "Language learning (business-relevant)",
+          "Coaching & mentorship programs"
+        ],
+        "ineligible_expenses": [
+          "Degree programs (separate tuition assistance program)",
+          "Personal interest courses unrelated to role",
+          "Entertainment or leisure activities",
+          "Equipment (covered by equipment policy)"
+        ],
+        "approval_process": {
+          "under_500": "Manager auto-approval",
+          "500_2000": "Manager + People Partner approval",
+          "over_2000": "Manager + People Partner + VP approval"
+        },
+        "reimbursement": "Submit via Workday with receipt and learning reflection (200 words) within 30 days.",
+        "sharing_requirement": "Present learnings at team meeting or write internal blog post within 60 days."
+      }
+    },
+    {
+      "id": "hr-pol-003",
+      "title": "Performance Review Cycle",
+      "version": "4.0",
+      "effective_date": "2024-01-01",
+      "last_reviewed": "2024-11-01",
+      "owner": "People & Culture",
+      "applies_to": ["full-time"],
+      "content": {
+        "cycle": "Semi-annual (H1: Jan-Jun, H2: Jul-Dec)",
+        "timeline": {
+          "self_review_opens": "Week 1 of cycle end month",
+          "self_review_due": "Week 2",
+          "manager_review_due": "Week 3",
+          "calibration": "Week 4",
+          "delivery": "Week 5-6"
+        },
+        "components": [
+          {
+            "name": "Goals & Outcomes (60%)",
+            "description": "OKR achievement, project delivery, business impact",
+            "rating_scale": ["Exceeds", "Meets", "Partially Meets", "Does Not Meet"]
+          },
+          {
+            "name": "Competencies (25%)",
+            "description": "Technical excellence, collaboration, communication, ownership",
+            "rating_scale": ["Role Model", "Consistent", "Developing", "Needs Improvement"]
+          },
+          {
+            "name": "Values Alignment (15%)",
+            "description": "Demonstration of core values in daily work",
+            "rating_scale": ["Exemplary", "Aligned", "Inconsistent", "Misaligned"]
+          }
+        ],
+        "calibration": "Cross-team calibration sessions led by People Partners. Ensures consistency across org.",
+        "outcomes": {
+          "promotion_eligibility": "2 consecutive 'Exceeds' + Role Model competencies",
+          "compensation_adjustment": "Based on rating + market data + budget",
+          "pip_trigger": "2 consecutive 'Does Not Meet' or 'Needs Improvement'"
+        },
+        "appeals": "Submit to People Partner within 10 business days. Reviewed by VP People + CTO."
+      }
+    },
+    {
+      "id": "hr-pol-004",
+      "title": "Parental Leave",
+      "version": "2.0",
+      "effective_date": "2024-03-01",
+      "last_reviewed": "2024-10-01",
+      "owner": "People & Culture",
+      "applies_to": ["full-time"],
+      "content": {
+        "primary_caregiver": {
+          "duration_weeks": 20,
+          "paid_weeks": 20,
+          "salary_percentage": 100
+        },
+        "secondary_caregiver": {
+          "duration_weeks": 8,
+          "paid_weeks": 8,
+          "salary_percentage": 100
+        },
+        "adoption_surrogacy": "Same as primary caregiver",
+        "pregnancy_complications": "Additional 4 weeks paid at 100%",
+        "flexible_return": {
+          "part_time_option": "Up to 12 weeks at 60% hours, 100% pay",
+          "remote_option": "Full remote for first 8 weeks post-return"
+        },
+        "job_protection": "Guaranteed return to same or equivalent role",
+        "benefits_continuation": "Full benefits maintained during leave",
+        "notification": "Notify manager + People Partner at least 8 weeks before expected date"
+      }
+    },
+    {
+      "id": "hr-pol-005",
+      "title": "Compensation Philosophy",
+      "version": "1.5",
+      "effective_date": "2024-01-01",
+      "last_reviewed": "2024-09-15",
+      "owner": "People & Culture + Finance",
+      "applies_to": ["full-time", "part-time"],
+      "content": {
+        "principle": "Pay at 75th percentile of market for role/level/location",
+        "components": {
+          "base_salary": "Market 75th percentile, reviewed annually",
+          "equity": "Annual refresh grants, 4-year vesting, 1-year cliff",
+          "bonus": "Target 15% (IC) / 25% (M) / 40% (Director+), paid quarterly",
+          "benefits": "Comprehensive health, 401k match 5%, wellness stipend"
+        },
+        "location_adjustment": {
+          "method": "Cost of labor (not cost of living)",
+          "tiers": {
+            "tier_1": ["San Francisco", "New York", "London", "Zurich"],
+            "multiplier": 1.0
+          },
+          "tier_2": ["Seattle", "Boston", "Berlin", "Toronto", "Sydney"],
+          "multiplier": 0.9
+        },
+        "transparency": "Salary bands published internally. Candidates see band in offer.",
+        "equity_refresh": "Annual in March. Based on performance + tenure + level."
+      }
+    }
+  ]
+}
